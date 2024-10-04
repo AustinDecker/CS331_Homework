@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <array>
 
 
 //Problem 1
@@ -67,13 +68,13 @@ public:
         }
 
         // Add grade to the respective class
-        this->grades.at(static_cast<std::size_t>(studentClass)).push_back(grade);
+        grades.at(static_cast<std::size_t>(studentClass)).push_back(grade);
     }
 
     void viewStudentReport(){
-        std::array<double, static_cast<int>(StudentClasses::CLASS_SIZE)> gradeAverages = this->calculateGradeAverages();
+        std::array<double, static_cast<int>(StudentClasses::CLASS_SIZE)> gradeAverages = calculateGradeAverages();
 
-        std::cout << "Student:\t" << this->name << std::endl;
+        std::cout << "Student:\t" << name << std::endl;
         std::cout << "=======================================================================================" << std::endl;
         std::cout << "Math\t" << "Science\t" << "English\t" << "Social Studies\t" << "Language Studies\t" << std::endl;
         std::cout << gradeAverages.at(0) << "\t" << "\t" << gradeAverages.at(1) << "\t" << gradeAverages.at(2) << "\t" << gradeAverages.at(3) << "\t" << gradeAverages.at(4) << "\t" << std::endl;
@@ -96,7 +97,7 @@ private:
 
     double calcClassAverage(StudentClasses studentClass) {
         double total{0.0};
-        std::vector<double>& individualClassGrades = this->grades.at(static_cast<std::size_t>(studentClass));
+        std::vector<double>& individualClassGrades = grades.at(static_cast<std::size_t>(studentClass));
 
         // Calculate total grades
         for (const double& grade : individualClassGrades) {
@@ -106,6 +107,7 @@ private:
         // Avoid division by zero
         if (individualClassGrades.empty()) {
             return 0.0;
+        }
 
         return (total / individualClassGrades.size());
     }
@@ -116,8 +118,8 @@ private:
         }
         return "FAIL";
     };
-}
+};
 
-void main(){
-    
+int main(){
+    return 0;
 }
