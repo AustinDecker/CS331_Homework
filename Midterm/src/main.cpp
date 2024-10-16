@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <array>
-#include "main.h"
 
 //defined global variables
 
